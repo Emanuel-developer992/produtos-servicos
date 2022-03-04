@@ -1,0 +1,287 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
+        <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+        <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js"> charset="uft-8"</script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!--Meu CSS -->
+        <link href="css/ProdutosServiços.css" rel="stylesheet">
+
+    </head>
+        <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+    <body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+            <a id="produtos_servicos_tabs" class="nav-link nav-title nav-close" data-toggle="tab" href="#produtos_servicos_nav">Cadastro de Produtos e Serviços</a>
+            </li>
+        </ul>
+
+        <div id="validCpf" class="alert alert-danger nav-close" role="alert">CPF inválido</div>
+        <div id="validCnpj" class="alert alert-danger nav-close" role="alert">CNPJ inválido</div>
+        <div id="anexDoc" class="alert alert-info nav-close" role="alert">Por favor anexe o documento na opção de Anexos no canto superior direito</div>
+
+            <div class="tab-content">   
+
+                <!--Navegação 2 (Produtos e Serviços)-->
+                <div id="produtos_servicos_nav" class="container tab-pane active" aria-selected="true">
+                    <div class="row">
+
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1 class="display-4 j-medcin-p">Produtos e Serviços</h1>
+                                <p class="lead j-medcin-h1">Cadastro de produtos e serviços (Unitários e Combo)</p>
+                            </div>
+                            </div>
+
+                        <!-- 1° Painel -->
+                        <div class="panel panel-primary painel-medcin-div1" style="padding: 0px">
+                            <div class="panel-heading painel-medcin">
+                                <h3 class="panel-title">Informações Básicas</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <!-- ID (PS-01) Automatico -->
+                                <div class="form-group col-md-2">
+                                    <label for="codP">Código do Produto</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon painel-medcin">ID</div>
+                                        <input type="text" id="codP" name="codP" class="form-control form-control-sm mInt" readonly="" style="text-align: center;">
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                
+                                <!-- 1° Input -->
+                                <div class="form-group col-md-3">
+                                    <label for="estudoPS">Estudo<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <input name="estudoPS" type="text" class="form-control" id="estudoPS" placeholder="Estudo do produto...">
+                                </div>
+
+                                <!-- Input -->
+                                <div id="div_select1" class="form-group col-md-3">
+                                    <label for="grupo_item">Grupo do Item<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <select name="grupo_item" type="text" class="form-control" id="grupo_item"></select>
+                                </div>
+
+                                <!-- Input -->
+                                <div class="form-group col-md-3">
+                                    <label for="p_s">Produto ou Serviço?<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <select name="p_s" type="text" class="form-control" id="p_s">
+                                        <option value="">Selecione...</option>
+                                        <option value="Produto">Produto</option>
+                                        <option value="Serviço">Serviço</option>
+                                    </select>
+                                </div>
+
+                                <!-- Input -->
+                                <div class="form-group col-md-3">
+                                    <label for="buy_sell">Compra e Venda?<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <select name="buy_sell" type="text" class="form-control" id="buy_sell">
+                                        <option value="">Selecione...</option>
+                                        <option value="Compra">Compra</option>
+                                        <option value="Compra e Venda">Compra e Venda</option>
+                                    </select>
+                                </div>
+
+                                <!-- Input -->
+                                <div class="form-group col-md-6">
+                                    <label for="compl">Complemento?<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <select name="compl" type="text" class="form-control" id="compl">
+                                        <option value="">Selecione...</option>
+                                        <option value="Sim">Sim</option>
+                                        <option value="Não">Não</option>
+                                    </select>
+                                </div>
+
+                                <!-- Input -->
+                                <div id="div_perc" class="form-group col-md-6 nav-close">
+                                    <label for="pertence">P/S Pertencente<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <select name="pertence" type="text" class="form-control" id="pertence">
+                                        <option value="">Selecione...</option>
+                                    </select>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                                <!-- 2° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="descricao"><h2>Descrição</h2><i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <p class="p-cinza">Discorra a descrição do produto ou serviço a ser cadastrado</p>
+                                    <textarea name="descricao" type="text" class="form-control" id="descricao"></textarea>
+                                </div>
+
+                                <!-- 3° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="specificChar"><h2>Características Específicas</h2><i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <p class="p-cinza">Relate as caracteristicas específicas desse produto</p>
+                                    <textarea name="specificChar" type="text" class="form-control" id="specificChar"></textarea>
+                                </div>
+
+                                <!-- 4° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="descricaoEn"><h2>Descrição em Inglês</h2><i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <p class="p-cinza">Escreva a descrição do produto ou serviço em inglês</p>
+                                    <textarea name="descricaoEn" type="text" class="form-control" id="descricaoEn"></textarea>
+                                </div>
+
+                                <!-- 5° Input -->
+                                <div class="form-group col-md-3">
+                                    <label for="controlEstoq">Controle de Estoque<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <select name="controlEstoq" type="text" class="form-control" id="controlEstoq">
+                                        <option value="">Selecione...</option>
+                                        <option value="Sim">Sim</option>
+                                        <option value="Não">Não</option>
+                                    </select>
+                                </div>
+
+                                <!-- Input -->
+                                <div class="form-group col-md-3">
+                                    <label for="itemSub">Item<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                    <select name="itemSub" type="text" class="form-control" id="itemSub">
+                                        <option value="">Selecione...</option>
+                                        <option value="Item">Item</option>
+                                        <option value="Subitem">Subitem</option>
+                                        <option value="Item e Subitem">Item e Subitem</option>
+                                    </select>
+                                </div>
+
+                                <!-- 6° Input -->
+                                <div class="form-group col-md-3">
+                                    <label for="pVenda">Preço de referência</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon painel-medcin">R$</div>
+                                        <input name="pVenda" type="text" class="form-control" id="pVenda" placeholder="Média do preço do produto...">
+                                    </div>  
+                                </div>
+
+
+                                <!-- 8° Input -->
+                                <div class="form-group col-md-3">
+                                    <label for="fornecedores">Fornecedores</label>
+                                    <input
+                                        type="zoom"
+                                        id = "fornecedores"
+                                        name="fornecedores"
+                                        data-zoom="{
+                                            'displayKey':'nomeFantasia',
+                                            'datasetId':'DSFormulariodeCadastrodeFornecedor',
+                                            'maximumSelectionLength':'1',
+                                            'placeholder':'Selecione...',
+                                            'fields':[
+                                                {
+                                                'field':'idCP',
+                                                'label':'ID'
+                                                },{
+                                                'field':'nomeFantasia',
+                                                'label':'Nome',
+                                                'standard':'true'
+                                                }
+                                            ]
+                                        }"
+                                    />
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 2° Painel -->
+                        <div class="panel panel-primary painel-medcin-div1" style="padding: 0px">
+                            <div class="panel-heading painel-medcin">
+                                <h3 class="panel-title">Subitens</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="clearfix"></div>
+
+                                <br>
+
+                                <div class="d-grid gap-2 col-8 mx-auto">
+                                    <button class="btn button-medcin" id="add_subitem" onclick="pushItem();">Novo Sub-Item <i class="fluigicon fluigicon-plus icon-sm"></i></button>
+                                </div>
+                                
+                                <br>
+                                <br>
+
+                                <!-- Tabela 1--> 
+                                <div class="table-responsive col-md-12" >
+                                    <table tablename="tb_subitem" class="table table-hover" id="tb_subitem" noaddbutton="true" nodeletebutton="true">
+                                        <thead>
+                                            <tr>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 15%;"><input id="tb_doc" name="tb_doc" type="text" style="width: 100%;" class="invisible-input" readonly></input></td>
+                                                <td style="width: 15%;"><input id="tb_n" name="tb_n" type="text" style="width: 100%;" class="invisible-input" readonly></input></td>
+                                                <td><input type="text" id="tb_descricao" name="tb_descricao" class="form-control" placeholder="Descrição do Sub-Item"></input></td>
+                                                <td><input type="text" id="tb_responsavel" name="tb_responsavel" class="form-control" placeholder="Responsável/Estudo do item"></input></td>
+                                                <td><button type="button" id="excluirSubitem" name="excluirSubitem" class="btn btn-danger excluir">Excluir</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    
+                            </div>
+                        </div>
+
+                                <!-- 3° Painel -->
+                                <div class="panel panel-primary painel-medcin-div1" style="padding: 0px">
+                                    <div class="panel-heading painel-medcin">
+                                        <h3 class="panel-title">Instruções</h3>
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <!-- 10° Input -->
+                                        <div class="form-group col-md-12">
+                                            <label for="metodologia">Metodologia do Produto ou Serviço<i style="color: red;" class="flaticon flaticon-snow icon-xs"></i></label>
+                                            <p class="p-cinza">Detalhe toda a métodologia desse produto ou serviço para integração no relatório final...</p>
+                                            <textarea name="metodologia" type="text" class="form-control" style="height: 200px;" id="metodologia"></textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+                <!-- Input -->
+                <div class="clearfix"></div>
+                <div class="form-group col-md-4 nav-close">
+                    <label for="descForm">Descrição do Docuemento</label>
+                    <input name="descForm" type="text" class="form-control" id="descForm">
+                </div>
+
+                <label>Medcin - Fluig</label>
+                <div class="nav-close">
+                    <label>Usuário</label>
+                    <input id="safety" name="safety">
+                    <label>Data</label>
+                    <input id="safety2" name="safety2" mask='000'>
+                <div>
+
+            </div>
+
+            <!-- Meu Script -->
+
+            <script type="text/javascript" src="js/ProdutosServiços.js"></script>
+
+            <!--orion-->
+            
+        </form>
+        </div>
+    </body>
+</html>

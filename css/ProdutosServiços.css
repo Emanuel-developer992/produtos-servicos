@@ -1,0 +1,119 @@
+/*Ocultar elemento*/
+.nav-close  {
+    display: none !important;
+}
+.nav-title {
+    color: #e5883f !important;
+}
+
+/*Formato de botão Medcin*/
+.button-medcin {
+    color: white !important;
+    background-color: #e5883f !important;
+    border-color: #e5883f !important;
+}
+
+/*Paragrafo na cor cinza*/
+.p-cinza {
+    color: #a9a9a9;
+}
+
+/*Jubotrom da Medcin (paragrafo)*/
+.j-medcin-p {
+    color: #e5883f !important;
+
+}
+
+/*Jubotrom da Medcin (titulo h1)*/
+.j-medcin-h1 {
+    color: #898989 !important;
+}
+
+/*Painel da Medcin (div 1)*/
+.painel-medcin-div1 {
+    border-color: #e5883f !important;
+}
+
+/*Painel da Medcin (div 2)*/
+.painel-medcin {
+    background-color: #e5883f !important;
+    border-color: #e5883f !important;
+    color: white !important;
+}
+
+/*Inputs invisíveis*/
+.invisible-input {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    
+}
+
+.descricao-input {
+    height: 100px !important;
+    width: 280px !important;
+}
+
+.title-medcin {
+    text-align: center;
+
+}
+
+.readonly-css {
+
+    pointer-events: none;
+
+}
+
+.doc-error {
+    border-color: red !important;
+    color: red !important;
+}
+
+.div-column1 {
+    /*background-color: rgb(234, 232, 232) !important;*/
+    margin-left: 0% !important;
+    padding-bottom: 1% !important;
+}
+
+.div-column2 {
+    margin-left: 1% !important;
+    margin-top: 1% !important;
+}
+
+@keyframes go-up {
+    0% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes go-down {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.bannerStage1 {
+    position: fixed !important;
+    margin-top: 0% !important;
+    margin-left: 38% !important;
+    width: 25% !important;
+    z-index: 30 !important;
+    animation: go-down 2s;
+
+}
+.bannerStage2 {
+    position: fixed !important;
+    margin-top: 0% !important;
+    margin-left: 38% !important;
+    width: 25% !important;
+    z-index: 30 !important;
+    animation: go-up 2s;
+}
